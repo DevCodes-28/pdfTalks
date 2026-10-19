@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG Chatbot for Documents</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <h1>RAG Chatbot for Documents <span class="muted">(PDF / TXT / CSV)</span></h1>
+  <button id="toggleSide" class="btn ghost only-small" aria-expanded="false" aria-controls="side">Documents</button>
+</header>
+<p class="lede">Chat with your own PDFs, text files, and CSVs. Every answer cites exactly which chunk of which file it came from.</p>
+
+<div class="layout">
+  <aside id="side" class="side" aria-label="Documents">
+    <h2>Upload</h2>
+    <label id="drop" class="drop" tabindex="0">
+      <input id="file" type="file" accept=".pdf,.txt,.csv" multiple hidden>
+      <strong>Choose files</strong> or drop them here
+      <span class="muted">PDF, TXT, CSV · up to 20 MB each</span>
+    </label>
+    <div id="uploadMsg" class="msg" role="status" aria-live="polite"></div>
+    <h2>Indexed documents</h2>
+    <ul id="docs" class="docs"></ul>
+    <label class="field">Chunks retrieved (top-k)
+      <input id="topk" type="range" min="1" max="10" value="4"><output id="topkOut">4</output>
+    </label>
+  </aside>
+
+  <main class="chat">
+    <div id="log" class="log" aria-live="polite">
+      <div class="empty" id="empty">
+        <p>Upload a document, then ask a question.</p>
+        <p class="muted">Answers use only retrieved content. If nothing relevant is found, it says so instead of guessing.</p>
+      </div>
+    </div>
+    <form id="form" class="composer" autocomplete="off">
+      <input id="q" type="text" placeholder="Ask about your documents" aria-label="Question" required maxlength="2000">
+      <button class="btn primary" id="send" type="submit">Ask</button>
+    </form>
+  </main>
+
+  <aside id="inspector" class="inspector" hidden aria-label="Source chunk">
+    <div class="inspector-head"><code id="inspId"></code><button class="btn ghost" id="inspClose" aria-label="Close source">Close</button></div>
+    <pre id="inspText"></pre>
+  </aside>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

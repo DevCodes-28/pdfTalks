@@ -1,0 +1,8 @@
+[
+  {"q": "How many days per week can employees work remotely?", "expect": "three", "source": "company_handbook.pdf"},
+  {"q": "What is the daily meal reimbursement limit?", "expect": "60", "source": "company_handbook.pdf"},
+  {"q": "How often must passwords be rotated?", "expect": "180", "source": "security_guidelines.txt"},
+  {"q": "How much does the Nimbus Rain Jacket cost?", "expect": "129", "source": "products.csv"},
+  {"q": "Which product is out of stock?", "expect": "Drift Fleece", "source": "products.csv"},
+  {"q": "Who won the 2018 football world cup?", "expect": null, "source": null}
+]

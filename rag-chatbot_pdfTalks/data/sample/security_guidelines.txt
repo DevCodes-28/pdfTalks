@@ -1,0 +1,3 @@
+Security Guidelines (v2)
+
+Passwords must be at least 14 characters and rotated every 180 days. Multi-factor authentication is mandatory for all production systems. Lost devices must be reported to the security desk within 2 hours.
